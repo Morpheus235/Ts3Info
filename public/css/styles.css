@@ -1,0 +1,27 @@
+body
+{ 
+    background: url(/img/TeamSpeak_Logo_Neu.jpg) no-repeat center center fixed; 
+    width: 100vw;
+    height: 100vh; 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+nav
+{
+    overflow: auto;
+}
+
+#btn1
+{
+    align-content: center;
+}
+.inline_test
+{
+    display:inline;
+}
+.btn btn-primary
+{
+    display:inline;
+
+}

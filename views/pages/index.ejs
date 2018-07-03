@@ -1,0 +1,279 @@
+<div>
+    <p class="inline_test">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false"
+                aria-controls="collapseExample">
+            Benutzer
+        </button>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse5"
+                aria-expanded="false" aria-controls="collapseExample">
+            Message all
+        </button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse6"
+                aria-expanded="false" aria-controls="collapseExample">
+            Channel Liste
+        </button>
+
+
+    </p>
+ <div class="collapse" id="collapse2">
+            <div class="card card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Unique-ID</th>
+                            <th scope="col">DB ID</th>
+                            <th scope="col">Kicken</th>
+                            <th scope="col">Bannen</th>
+                            <th scope="col">Reporten</th>
+                            <th scope="col">Löschen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% 
+                        tsUser.forEach(function(client, index){ %> 
+                        <tr>
+                            <td><%= index +1 %></td>
+                            <td scope="row"><%= client.nickname %></td>                          
+                            <td><%= client.uid %></td>
+                            <td><%= client.dbid %></td>
+                            <td><button class="btn btn-primary " type="button" onclick ='kickUser("<%= client.nickname %>")'>Kicken</button></td>
+                            <td><button class="btn btn-primary " type="button" onclick ='banUser("","<%= client.nickname %>", "<%= client.uid %>","","tschüss" )'>Kicken</button></td>
+                            <td></td>
+                            <td></td>
+                        </tr> 
+                        <% }); %>
+
+                    </tbody>
+                </table>
+                <p class="inline_test">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                Poke
+                            </button>
+
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                Kick
+                            </button>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse4"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                Message
+                            </button>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse7"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                Move
+                            </button>
+                </p>
+                </div>
+            </div>
+
+    <div class="collapse" id="collapse1">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                        <div class="dropdown">
+
+                            <div class="dropdown">
+                                <button class="btn_user btn-primary dropdown-toggle " id="userPoke" type="input" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    User
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu dropdown_user" aria-labelledby="dropdownMenu1">
+                                <% 
+                                tsUser.forEach(function(client){ %> 
+                                    <li><a href="#" ><%= client.nickname %></a></li>
+                                    <% }); %>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Nachricht</label>
+                    <textarea class="form-control" id="textPoke" rows="3"
+                            placeholder="Nachricht hierher"></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="input1">Delay</label>
+                    <input type="input" class="form-control" id="delayPoke" placeholder="Delay">
+                </div>
+                 <div class="form-group">
+                    <label for="input1">Anzahl</label>
+                    <input type="input" class="form-control" id="anzahlPoke" placeholder="Anzahl">
+                </div>
+            </form>
+            <div>
+            
+                <button class="btn btn-primary" type="button" onclick ="pokeUser()">Senden</button>
+                      
+                <button class="btn btn-primary" type="button" onclick ="pokeUserRandom()">Random Poke</button>
+
+                <button class="btn btn-primary" type="button" onclick ="getClientId()">get Client ID</button>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse" id="collapse3">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                        <div class="dropdown">
+
+                            <div class="dropdown">
+                                <button class="btn_user btn-primary dropdown-toggle" id="userKick" type="input" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    User
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu dropdown_user" aria-labelledby="dropdownMenu1">
+                                <% 
+                                tsUser.forEach(function(client){ %> 
+                                    <li><a href="#" type="input" ><%= client.nickname %></a></li>
+                                    <% }); %>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Nachricht</label>
+                    <textarea class="form-control" id="textKick" rows="3"
+                            placeholder="Nachricht hierher"></textarea>
+                </div>
+            </form>
+            <div> 
+                <button class="btn btn-primary" type="button" onclick ="kickUser()">kick User</button>
+
+                <button class="btn btn-primary" type="button" onclick ="getClientId()">get Client ID</button>
+
+                <button class="btn btn-primary" type="button" onclick ="kickUserRandom()">kick User Random</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse" id="collapse4">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                        <div class="dropdown">
+
+                            <div class="dropdown">
+                                <button class="btn_user btn-primary dropdown-toggle" id="userMsg" type="input" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    User
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu dropdown_user" aria-labelledby="dropdownMenu1">
+                                <% 
+                                tsUser.forEach(function(client){ %> 
+                                    <li><a href="#" type="input" ><%= client.nickname %></a></li>
+                                    <% }); %>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Nachricht</label>
+                    <textarea class="form-control" id="textMsg" rows="3"
+                            placeholder="Nachricht hierher"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="input1">Delay</label>
+                    <input type="input" class="form-control" id="delayMsg" placeholder="Delay">
+                </div>
+
+                <div class="form-group">
+                    <label for="input1">Anzahl</label>
+                    <input type="input" class="form-control" id="anzahlMsg" placeholder="Anzahl">
+                </div>
+            </form>
+            <div> 
+                <button class="btn btn-primary" type="button" onclick ="sendMsg()">Senden</button>
+                <button class="btn btn-primary" type="button" onclick ="sendMsgRandom()">Random Msg</button>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse" id="collapse6">
+                <div class="card card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Channelnummer</th>
+                                <th scope="col">Channelname</th>
+                                <th scope="col">ChannelID</th>
+                                <th scope="col">Clients im Channel</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <% 
+                        tsChannel.forEach(function(data , index){ %> 
+                        <tr>
+                            <td><%= index +1 %></td>
+                            <td scope="row"><%= data.channel_name %></td>                          
+                            <td><%= data.cid %></td>
+                            <td><%= data.total_clients %></td>
+                        </tr> 
+                        <% }); %>
+
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+
+                    <div class="collapse" id="collapse7">
+        <div class="card card-body">
+            <form>
+                <div class="form-group">
+                        <div class="dropdown">
+
+                            <div class="dropdown">
+                                <button class="btn_user btn-primary dropdown-toggle" id="user_move_name" type="input" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    User
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu dropdown_user" id="usermove" aria-labelledby="dropdownMenu1">
+                                <% 
+                                tsUser.forEach(function(client){ %> 
+                                    <li><a href="#" type="input" ><%= client.nickname %></a></li>
+                                    <% }); %>
+                                </ul>
+                             </div>
+                                 <div class="dropdown">
+                                <button class="btn_move btn-primary dropdown-toggle" id="channelMove" type="input" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Channel
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu" id="move_Dropdown" aria-labelledby="dropdownMenu2">
+                               <% 
+                                tsChannel.forEach(function(data){ %> 
+                                    <li><a href="#" type="input"><%= data.cid %> <%= data.channel_name %></a></li>
+                                    <% }); %>
+                                </ul>
+                            </div>
+                </div>
+                    <div> 
+                <button class="btn btn-primary" type="button" onclick ="moveUser()">Senden</button>
+                <button class="btn btn-primary" type="button" onclick ="sendMsgRandom()">Random Msg</button>
+
+                
+            </div>
+        </div>
+    </div>
+
+       
+</div>
+<script src="/js/code.js"></script>
