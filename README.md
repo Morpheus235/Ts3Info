@@ -26,7 +26,6 @@ Server Information and Query Information need to be provided:
 fill out and save as .env
  
 ```
-{
   HOST=
   QUERYPORT=
   SERVERPORT=
@@ -34,7 +33,6 @@ fill out and save as .env
   QUERY_PASSWORD=
   NICKNAME=
   KOA_PORT=
-}
 ```
 
 ## Starting the Application
