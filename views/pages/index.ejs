@@ -37,12 +37,12 @@
                         <td><%= client.dbid %></td>
                         <td>
                             <button class="btn btn-primary " type="button" onclick='kickUser("<%= client.nickname %>")'>
-                                Kicken
+                                Kick
                             </button>
                         </td>
                         <td>
                             <button class="btn btn-primary " type="button"
-                                    onclick='banUser("<%= client.nickname %>", "<%= client.uid %>","","tschüss")'>Bannen
+                                    onclick='banUser("<%= client.nickname %>", "<%= client.uid %>","","tschüss")'>Ban
                             </button>
                         </td>
                         <td></td>
@@ -114,7 +114,7 @@
             </form>
             <div>
 
-                <button class="btn btn-primary" type="button" onclick="pokeUser()">Senden</button>
+                <button class="btn btn-primary" type="button" onclick="pokeUser()">Send</button>
 
                 <button class="btn btn-primary" type="button" onclick="pokeUserRandom()">Random Poke</button>
 
@@ -204,7 +204,7 @@
                 </div>
             </form>
             <div>
-                <button class="btn btn-primary" type="button" onclick="sendMsg()">send</button>
+                <button class="btn btn-primary" type="button" onclick="sendMsg()">Send</button>
                 <button class="btn btn-primary" type="button" onclick="sendMsg()">Message all</button>
                 <button class="btn btn-primary" type="button" onclick="sendMsgRandom()">Message random</button>
 
@@ -233,7 +233,7 @@
                 </div>
             </form>
             <div>
-                <button class="btn btn-primary" type="button" onclick="sendMsgAll()">Senden</button>
+                <button class="btn btn-primary" type="button" onclick="sendMsgAll()">Send</button>
             </div>
         </div>
     </div>
@@ -242,10 +242,10 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Channelnummer</th>
-                    <th scope="col">Channelname</th>
-                    <th scope="col">ChannelID</th>
-                    <th scope="col">Clients im Channel</th>
+                    <th scope="col">Channel No.</th>
+                    <th scope="col">Channel Name</th>
+                    <th scope="col">Channel ID</th>
+                    <th scope="col">Channel Clients No.</th>
 
                 </tr>
                 </thead>
