@@ -27,18 +27,35 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href=<%- 'ts3server://' + process.env.HOST.toString() + ':9987' %>>Home <span-->
+<!--                                class="sr-only">(current)</span></a>-->
+<!--                </li>-->
                 <li class="nav-item active">
-                    <a class="nav-link" href="http://localhost:4000/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" id="player_count" onclick="getServerinfo()"><span class="sr-only"
+                                                                                          id="player_count"></span></a>
                 </li>
-                 <li class="nav-item active">
-                   <a class="nav-link" id="player_count" onclick="getServerinfo()"><span class="sr-only" id="player_count"></span></a>
-                </li>              
+
+                <li class="nav-item active" data-toggle="collapse" data-target="#collapse2"
+                    aria-expanded="false"
+                    aria-controls="collapseExample">
+                    <a  href="javascript:void(0)" class="nav-link">User list</a>
+                </li>
+                <li class="nav-item active" data-toggle="collapse" data-target="#collapse6"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    <a href="javascript:void(0)" class="nav-link">Channel list</a>
+                </li>
 
             </ul>
-                    <ul class="navbar-nav navbar-right">
-                        <li class="nav-item active">
-                <a href="ts3server://gamers-union.de:9987"><img src="/img/TeamSpeak_Logo_klein.jpg" class="nav-link"  > <span class="sr-only"></span></img></a>
-                </li> 
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item active">
+                    <a href=<%- 'ts3server://' + process.env.HOST.toString() + ':9987' %>>
+                        <img
+                                src="/img/TeamSpeak_Logo_klein.jpg" class="nav-link"> <span
+                                class="sr-only"></span>
+                        </img>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

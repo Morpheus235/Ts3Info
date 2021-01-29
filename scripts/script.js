@@ -1,23 +1,28 @@
 const TeamSpeak3 = require("ts3-nodejs-library");
-
-var ts3 = new TeamSpeak3({
-    host: "gamers-union.de",
-    queryport: 10011,
-    serverport: 9987,
-    username: "serveradmin",
-    password: "",
-    nickname: "Webinterface"
-});
+const config = getTS3Config(process.env)
+const ts3 = new TeamSpeak3(config);
 
 ts3.on("ready", () => {
     //Retrieves a List of non Query Clients
-    ts3.clientList({client_type:0}).then(clients => {
+    ts3.clientList({client_type: 0}).then(clients => {
         tsclients = clients;
     }).catch(e => console.log("CATCHED", e.message));
 });
-async function realGetClientsALL(){
-    var array=[];
-    await ts3.clientList({client_type:0}).then(clients => {
+
+function getTS3Config(env) {
+    return {
+        host: env.HOST,
+        queryport: env.QUERYPORT,
+        serverport: env.SERVERPORT,
+        username: env.QUERY_USERNAME,
+        password: env.QUERY_PASSWORD,
+        nickname: env.NICKNAME
+    }
+}
+
+async function realGetClientsALL() {
+    var array = [];
+    await ts3.clientList({client_type: 0}).then(clients => {
 
         clients.forEach(client => {
             array.push({
@@ -32,40 +37,40 @@ async function realGetClientsALL(){
     return array;
 }
 
-async function getChannelList(){
+async function getChannelList() {
 
     return ts3.channelList();
 
 }
 
-function getClients(){
-    return ts3.clientList({client_type:0});
+function getClients() {
+    return ts3.clientList({client_type: 0});
 }
 
-function getServerInfo(){
-    
+function getServerInfo() {
+
     return ts3.serverInfo();
 
 }
 
-function serverMsg(){
-    
+function serverMsg() {
+
     return ts3.serverInfo();
 
 }
 
-function getUserID(client){
+function getUserID(client) {
     console.log(client.getUID());
     return client.getUID();
-    
-}
 
+}
 
 
 ts3.on("error", e => console.log("Error", e.message));
 ts3.on("close", e => console.log("Connection has been closed!", e));
 
 module.exports = {
+    ts3Client: ts3,
     realGetClientsALL,
     getClients,
     getUserID,

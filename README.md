@@ -33,6 +33,7 @@ fill out and save as .env
   QUERY_USERNAME=
   QUERY_PASSWORD=
   NICKNAME=
+  KOA_PORT=
 }
 ```
 
@@ -52,3 +53,5 @@ http://localhost:4000
 * List Channels
 * get Information about the Server
 * Kicking Users
+* Banning Users
+* Join Button for Teamspeak Server
