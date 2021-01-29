@@ -2,12 +2,18 @@
   "name": "ts3info",
   "version": "1.0.1",
   "description": "A crude TS3 Webinterface",
+  "repository": "https://github.com/Morpheus235/Ts3Info",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node main.js"
   },
-  "keywords": ["TS3","Webinterface","koa","Query"],
+  "keywords": [
+    "TS3",
+    "Webinterface",
+    "koa",
+    "Query"
+  ],
   "author": "daniel.sossnowski@gmail.com",
   "license": "ISC",
   "dependencies": {
